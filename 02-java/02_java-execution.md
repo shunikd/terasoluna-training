@@ -148,39 +148,6 @@ graph LR
 javac HelloWorld.java
 ```
 
-### 💡 ポイント: JDKとJRE
-
-コンパイルで利用した `javac` コマンドは JDK に含まれている。
-
-JDKとJREの違いは以下の通りである。
-
-|項目|JDK|JRE|
-|---|---|---|
-|正式名称|Java Development Kit|Java Runtime Environment|
-|用途|Javaプログラムの開発|Javaプログラムの実行|
-|コンパイラ（javac）|〇|×|
-|JVM|〇|〇|
-|主な利用者|開発者|利用者・実行環境|
-
-
-イメージ
-
-```text
-JDK
-├─ javac（コンパイラ）
-└─ JRE
-    └─ JVM
-```
-
-Javaプログラムの開発にはコンパイラ（javac）が必要なため、開発環境には通常JDKをインストールする。
-
-一方、コンパイル済みのクラスファイルやJARファイルを実行するだけであれば、JREで実行可能である。
-
-そのため、従来は本番サーバにはJREのみを配置する構成が一般的であった。
-
-なお、現在のシステム開発では運用や管理の都合から、本番サーバにもJDKを配置するケースが多い。
-
-
 ## クラスファイル
 
 コンパイル後に生成されるファイルである。
@@ -192,7 +159,7 @@ HelloWorld.class
 クラスファイルにはJava仮想マシン(JVM)が理解できる命令が格納されている。
 
 
-### JVM(Java Virtual Machine)
+## JVM(Java Virtual Machine)
 
 JVMはJavaプログラムを実行するための仮想的な実行環境である。
 
@@ -209,30 +176,6 @@ HelloWorld.class
 ```bash
 java HelloWorld
 ```
-
-
-### JVMが存在する理由
-
-Javaには有名な特徴がある。
-
-```text
-Write Once, Run Anywhere
-（一度書けばどこでも動く）
-```
-
-これはJVMのおかげで実現されている。
-
-```text
-            HelloWorld.class
-                    │
-        ┌───────────┼───────────┐
-        ↓           ↓           ↓
-    Windows      macOS       Linux
-      JVM         JVM         JVM
-```
-
-OSごとにJVMを用意することで、同じクラスファイルを実行できる。
-
 
 ## Java実行の流れ
 

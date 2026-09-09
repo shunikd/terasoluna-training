@@ -1,0 +1,292 @@
+# Java実行の仕組み
+
+## この章で学ぶこと
+
+- Javaプログラムが実行される流れを理解する
+- ソースコードとクラスファイルの違いを理解する
+- JVMの役割を理解する
+- なぜJavaが様々なOSで動作するのか理解する
+
+
+## Javaプログラムはどのように実行されるのか
+
+Javaはソースコードを直接実行することはできない。
+
+まずソースコードをコンパイルして、クラスファイルを作成する。
+
+```mermaid
+graph LR
+    SRC[/"Javaソースコード<br>(.java)"/]
+    JAVAC["コンパイル<br>(javacコマンド)"]
+    CLASS[/"クラスファイル<br>(.class)"/]
+
+    SRC --> JAVAC
+    JAVAC --> CLASS
+```
+
+その後、JVMを使って実行する。
+
+```mermaid
+graph LR
+    CLASS[/"クラスファイル<br>(.class)"/]
+    JVM["JVM<br>(javaコマンド)"]
+    RESULT("実行")
+
+    CLASS --> JVM
+    JVM --> RESULT
+```
+
+
+## Javaソースコード
+
+開発者はJavaのソースコードを作成する。
+
+例)
+
+```java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello Java");
+    }
+
+}
+```
+
+ファイル名
+
+```text
+HelloWorld.java
+```
+
+### 💡 ポイント①（クラス名とファイル名）
+
+Javaでは以下のルールを守る。
+
+```text
+クラス名      = HelloWorld
+ファイル名    = HelloWorld.java
+```
+
+クラス名とファイル名が一致していない場合、コンパイルエラーとなる。
+
+### 💡 ポイント②（クラス名の命名規則）
+
+Javaではクラス名をパスカルケース（PascalCase）で命名する。
+
+パスカルケースとは、各単語の先頭を大文字にして連結する命名規則である。
+
+例)
+
+```java
+User
+UserInfo
+EmployeeService
+OrderController
+```
+
+### 💡 ポイント③（フィールド名・メソッド名の命名規則）
+
+フィールド名やメソッド名はキャメルケース（camelCase）で命名する。
+
+キャメルケースとは、先頭の単語を小文字、その後の単語の先頭を大文字にして連結する命名規則である。
+
+例)
+
+```java
+userName
+employeeService
+orderController
+getUserName()
+```
+
+### 💡 ポイント④（パッケージ名の命名規則）
+
+Javaではクラス名との区別を明確にするため、パッケージ名は小文字で記述する習慣となっている。
+
+また、パッケージ名は一意性を高めるため、組織や会社が保有するドメイン名を逆順にして利用することが一般的である。
+
+例)
+```
+package jp.co.sample.service; ← パッケージ名
+
+public class UserService { ← クラス名
+}
+```
+
+### 💡 ポイント（命名規則のまとめ）
+
+|対象|命名規則|例|
+|---|---|---|
+|クラス名|PascalCase|UserService|
+|インターフェース名|PascalCase|UserRepository|
+|メソッド名|camelCase|getUserName|
+|フィールド名|camelCase|userName|
+|パッケージ名|lowercase|jp.co.sample.user|
+
+
+## コンパイル
+
+Javaソースコードはそのままでは実行できない。
+
+JDKに含まれるコンパイラ(javac)を利用してクラスファイルへ変換する。
+
+```mermaid
+graph LR
+
+    JAVA[/"ソースファイル<br>(HelloWorld.java)"/]
+    JDK["JDK<br>(javacコマンド)"]
+    CLASS[/"クラスファイル<br>(HelloWorld.class)"/]
+
+    JAVA --> JDK
+    JDK --> CLASS
+```
+
+実行例
+
+```bash
+javac HelloWorld.java
+```
+
+### 💡 ポイント: JDKとJRE
+
+コンパイルで利用した `javac` コマンドは JDK に含まれている。
+
+JDKとJREの違いは以下の通りである。
+
+|項目|JDK|JRE|
+|---|---|---|
+|正式名称|Java Development Kit|Java Runtime Environment|
+|用途|Javaプログラムの開発|Javaプログラムの実行|
+|コンパイラ（javac）|〇|×|
+|JVM|〇|〇|
+|主な利用者|開発者|利用者・実行環境|
+
+
+イメージ
+
+```text
+JDK
+├─ javac（コンパイラ）
+└─ JRE
+    └─ JVM
+```
+
+Javaプログラムの開発にはコンパイラ（javac）が必要なため、開発環境には通常JDKをインストールする。
+
+一方、コンパイル済みのクラスファイルやJARファイルを実行するだけであれば、JREで実行可能である。
+
+そのため、従来は本番サーバにはJREのみを配置する構成が一般的であった。
+
+なお、現在のシステム開発では運用や管理の都合から、本番サーバにもJDKを配置するケースが多い。
+
+
+## クラスファイル
+
+コンパイル後に生成されるファイルである。
+
+```text
+HelloWorld.class
+```
+
+クラスファイルにはJava仮想マシン(JVM)が理解できる命令が格納されている。
+
+
+### JVM(Java Virtual Machine)
+
+JVMはJavaプログラムを実行するための仮想的な実行環境である。
+
+```text
+HelloWorld.class
+        ↓
+       JVM
+        ↓
+      実行
+```
+
+実行例
+
+```bash
+java HelloWorld
+```
+
+
+### JVMが存在する理由
+
+Javaには有名な特徴がある。
+
+```text
+Write Once, Run Anywhere
+（一度書けばどこでも動く）
+```
+
+これはJVMのおかげで実現されている。
+
+```text
+            HelloWorld.class
+                    │
+        ┌───────────┼───────────┐
+        ↓           ↓           ↓
+    Windows      macOS       Linux
+      JVM         JVM         JVM
+```
+
+OSごとにJVMを用意することで、同じクラスファイルを実行できる。
+
+
+## Java実行の流れ
+
+実際の開発では以下の流れでJavaプログラムが実行される。
+
+```text
+① ソースコード作成
+        ↓
+② コンパイル
+        ↓
+③ クラスファイル生成
+        ↓
+④ JVMで実行
+        ↓
+⑤ 実行結果表示
+```
+
+## まとめ
+
+```text
+Javaソースコード(.java)
+          ↓
+       javac
+          ↓
+クラスファイル(.class)
+          ↓
+         JVM
+          ↓
+         実行
+```
+
+Javaプログラムは「コンパイル」と「JVM」によって実行される。
+
+
+- Javaソースコード(.java)は直接実行できない
+- javacでコンパイルを行う
+- コンパイル後にクラスファイル(.class)が生成される
+- JVMがクラスファイルを実行する
+- JVMがあることでWindows、macOS、Linuxで同じプログラムを実行できる
+
+
+## 📚 参考資料
+
+### Oracle Java Documentation
+
+Javaの公式ドキュメント
+
+- [Java Documentation](https://docs.oracle.com/en/java/)
+
+### Java Tutorials
+
+Javaの基本的な考え方や文法を学習できるチュートリアル
+
+- [The Java Tutorials](https://docs.oracle.com/javase/tutorial/)
+
+
+⬅️ [前へ](./01_java.md) ➡️ [次へ](./03-jdk-jre-jvm.md) 🏠 [ホーム](./README.md)

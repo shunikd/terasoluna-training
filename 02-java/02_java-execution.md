@@ -7,7 +7,6 @@
 - JVMの役割を理解する
 - なぜJavaが様々なOSで動作するのか理解する
 
-
 ## Javaプログラムはどのように実行されるのか
 
 Javaはソースコードを直接実行することはできない。
@@ -35,7 +34,6 @@ graph LR
     CLASS --> JVM
     JVM --> RESULT
 ```
-
 
 ## Javaソースコード
 
@@ -107,10 +105,11 @@ Javaではクラス名との区別を明確にするため、パッケージ名�
 また、パッケージ名は一意性を高めるため、組織や会社が保有するドメイン名を逆順にして利用することが一般的である。
 
 例)
-```
-package jp.co.sample.service; ← パッケージ名
 
-public class UserService { ← クラス名
+```java
+package jp.co.sample.service; //← パッケージ名
+
+public class UserService {   //← クラス名
 }
 ```
 
@@ -124,7 +123,6 @@ public class UserService { ← クラス名
 |フィールド名|camelCase|userName|
 |パッケージ名|lowercase|jp.co.sample.user|
 
-
 ## コンパイル
 
 Javaソースコードはそのままでは実行できない。
@@ -133,16 +131,15 @@ JDKに含まれるコンパイラ(javac)を利用してクラスファイルへ�
 
 ```mermaid
 graph LR
-
-    JAVA[/"ソースファイル<br>(HelloWorld.java)"/]
-    JDK["JDK<br>(javacコマンド)"]
+    SRC[/"Javaソースコード<br>(HelloWorld.java)"/]
+    JAVAC["コンパイル<br>(javacコマンド)"]
     CLASS[/"クラスファイル<br>(HelloWorld.class)"/]
 
-    JAVA --> JDK
-    JDK --> CLASS
+    SRC --> JAVAC
+    JAVAC --> CLASS
 ```
 
-実行例
+コマンド実行例：
 
 ```bash
 javac HelloWorld.java
@@ -158,54 +155,27 @@ HelloWorld.class
 
 クラスファイルにはJava仮想マシン(JVM)が理解できる命令が格納されている。
 
-
 ## JVM(Java Virtual Machine)
 
 JVMはJavaプログラムを実行するための仮想的な実行環境である。
 
-```text
-HelloWorld.class
-        ↓
-       JVM
-        ↓
-      実行
+```mermaid
+graph LR
+    CLASS[/"クラスファイル<br>(HelloWorld.class)"/]
+    JVM["JVM<br>(javaコマンド)"]
+    RESULT("実行")
+
+    CLASS --> JVM
+    JVM --> RESULT
 ```
 
-実行例
+コマンド実行例：
 
 ```bash
 java HelloWorld
 ```
 
-## Java実行の流れ
-
-実際の開発では以下の流れでJavaプログラムが実行される。
-
-```text
-① ソースコード作成
-        ↓
-② コンパイル
-        ↓
-③ クラスファイル生成
-        ↓
-④ JVMで実行
-        ↓
-⑤ 実行結果表示
-```
-
 ## まとめ
-
-```text
-Javaソースコード(.java)
-          ↓
-       javac
-          ↓
-クラスファイル(.class)
-          ↓
-         JVM
-          ↓
-         実行
-```
 
 Javaプログラムは「コンパイル」と「JVM」によって実行される。
 
@@ -216,8 +186,7 @@ Javaプログラムは「コンパイル」と「JVM」によって実行され�
 - JVMがクラスファイルを実行する
 - JVMがあることでWindows、macOS、Linuxで同じプログラムを実行できる
 
-
-## 📚 参考資料
+## 参考資料
 
 ### Oracle Java Documentation
 
@@ -231,5 +200,4 @@ Javaの基本的な考え方や文法を学習できるチュートリアル
 
 - [The Java Tutorials](https://docs.oracle.com/javase/tutorial/)
 
-
-⬅️ [前へ](./01_java.md) ➡️ [次へ](./03-jdk-jre-jvm.md) 🏠 [ホーム](./README.md)
+⬅️ [前へ](./01_java.md) ➡️ [次へ](./03_jdk-jre-jvm.md) 🏠 [ホーム](./README.md)

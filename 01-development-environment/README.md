@@ -14,14 +14,14 @@ Java開発環境には以下のツールを使用します。
 
 ## 本書の方針
 
-本書は執筆時点（2026年9月）の最新バージョンである
+本書では、執筆時点（2026年9月）における最新版である TERASOLUNA Server Framework for Java 5.11.0.RELEASE を利用します。
 
-TERASOLUNA Server Framework for Java 5.11.0.RELEASE を利用します。
+また、各種ミドルウェアについては、 TERASOLUNA公式の検証済み環境（Tested Environment）で 動作確認されているバージョンを採用します。
 
-また、開発環境の各ソフトウェアについては、TERASOLUNA公式の検証済み環境（Tested Environment）で動作確認されているバージョンを採用します。
+本書の目的は最新バージョンを利用することではなく、 TERASOLUNAで動作実績のある開発環境を再現することです。 そのため、一部のソフトウェアについては執筆時点の最新版ではなく、 TERASOLUNAの検証済み環境に合わせたバージョンを利用します。
 
 | ソフトウェア | バージョン |
-|-------------|-------------|
+| --- | --- |
 | OpenJDK | 21.0.9 |
 | Git | 最新安定版 |
 | Maven | 最新安定版 |
@@ -31,6 +31,7 @@ TERASOLUNA Server Framework for Java 5.11.0.RELEASE を利用します。
 ※ OpenJDKは TERASOLUNA の検証済み環境に含まれる Java 21 系を採用しています。
 
 参考:
+
 - [動作検証環境](https://github.com/terasolunaorg/terasoluna-gfw-functionaltest/wiki/Tested-Environment)
 - [TERASOLUNA 5.11.0.RELEASE](https://github.com/terasolunaorg/terasoluna-gfw/releases)
 
@@ -40,17 +41,16 @@ TERASOLUNA Server Framework for Java 5.11.0.RELEASE を利用します。
 - TERASOLUNAを利用したWebアプリケーション開発者
 - 新規に開発環境を構築するメンバ
 
-
 ## 開発ツールの設定手順
 
 以下の順番で実施してください。
 
-| No | ドキュメント | 内容 |
-|---|---|---|
+| No | 内容 | ドキュメント |
+| --- | --- | --- |
 | 1 | 開発ツール一覧 | [📃](./01_development-tools-list.md) |
-| 2 | VSCodeのインストールおよび設定 | [📃](./02_vscode-setup.md) |
+| 2 | VS Codeのインストールおよび設定 | [📃](./02_vscode-setup.md) |
 | 3 | OpenJDKのインストールおよび環境変数設定 | [📃](./03_java-setup.md) |
-| 4 | gitのインストールおよび設定 | [📃](./04_git-setup.md) |
+| 4 | Gitのインストールおよび設定 | [📃](./04_git-setup.md) |
 | 5 | Mavenのインストールおよび設定 | [📃](./05_maven-setup.md) |
 | 6 | Tomcatのインストールおよび設定 | [📃](./06_tomcat-setup.md) |
 | 7 | PostgreSQLのインストールおよび設定 | [📃](./07_postgresql-setup.md) |

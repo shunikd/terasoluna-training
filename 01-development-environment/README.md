@@ -22,13 +22,13 @@ Java開発環境には以下のツールを使用します。
 
 | ソフトウェア | バージョン |
 | --- | --- |
-| OpenJDK | 21.0.9 |
+| OpenJDK | 21.0.2 |
 | Git | 最新安定版 |
 | Maven | 最新安定版 |
 | Tomcat | 11.0.15 |
 | PostgreSQL | 18.1 |
 
-※ OpenJDKは TERASOLUNA の検証済み環境に含まれる Java 21 系を採用しています。
+※ OpenJDKは TERASOLUNA の検証済み環境に含まれる Java 21 系の最新バージョンを採用しています。
 
 参考:
 

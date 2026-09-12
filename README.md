@@ -1,27 +1,29 @@
-# TERASOLUNA研修資料
+# TERASOLUNA Server Framework for Javaのトレーニング資料
 
-## 1. 開発環境
+## 1. 開発環境および開発ツールのセットアップ
 
-- [/01-development-environment/README.md
+- [開発環境および開発ツールのセットアップ](./01-development-environment/README.md)
 
 ## 2. Java基礎
 
-- [/02-java/README.md
+- [Javaの基礎](./02-java/README.md)
 
-## 3. Web基礎
+## 3. Javaアプリケーションの開発ツールの基礎
 
-- ./03-web/README.md
+- [Javaアプリケーションの開発ツールの基礎](./03-development-tools/README.md)
 
-## 4. DB基礎
+## 4. Webアプリケーションの基礎
 
-- [PostgreSQL](./04-database/README.md- ./05-git/README.md
+- [Webアプリケーションの基礎](./04-web/README.md)
 
-## 6. Maven
+## 5. データベースの基礎
 
-- [Maven入門](./06-maven/README.mdring
+- [データベースの基礎](./05-database/README.md)
 
-- [/07-spring/README.md
+## 6. Springフレームワークの基礎
 
-## 8. TERASOLUNA
+- [Springフレームワークの基礎](./06-spring/README.md)
 
-- [/08-terasoluna/README.md
+## 7. TERASOLUNA Server Framework for Javaの基礎
+
+- [TERASOLUNA Server Framework for Javaの基礎](./07-terasoluna/README.md)

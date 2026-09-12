@@ -1,39 +1,74 @@
-# 環境構築
+# 開発ツールリスト
 
-## VS Code エディタ
+以下のツールをインストールし、Java Webアプリケーションの開発環境を構築します。
 
-### ダウンロード
+## 1. Visual Studio Code (VS Code)
 
-### インストール
+ソースコードの作成・編集を行うための統合開発環境（IDE/エディタ）です。
 
-## OpenJDK
+- 公式ページ
+    https://azure.microsoft.com/ja-jp/products/visual-studio-code
 
-### ダウンロード
+- ダウンロード
+    https://code.visualstudio.com/download?_exp_download=fb315fc982
+
+## 2. OpenJDK
+
+Javaアプリケーションの実行およびコンパイルを行うための開発キットです。
+
+- 公式ページ
+    https://jdk.java.net/
+
+- ダウンロード
     https://jdk.java.net/archive/
 
-### インストール
-    1. 任意のフォルダで解凍する。
 
+## 3. git
 
-## Apache Maven
+ソースコードのバージョン管理を行うためのツールです。
 
-### ダウンロード
+- 公式ページ
+    https://git-scm.com/
+
+- ダウンロード
+    https://git-scm.com/install/
+
+## 4. Apache Maven
+
+Javaプロジェクトのビルドやライブラリ管理を行うツールです。
+
+- 公式ページ
+    https://maven.apache.org/index.html
+
+- ダウンロード
     https://maven.apache.org/download.cgi
 
-### インストール
+## 5. Apache Tomcat
 
+Java Webアプリケーションを実行するためのアプリケーションサーバーです。
 
-## Apache Tomcat
+- 公式ページ
+    https://tomcat.apache.org/
 
-### ダウンロード
+- ダウンロード
     https://tomcat.apache.org/download-10.cgi
-
-### インストール
-
 
 ## PostgreSQL
 
-### ダウンロード
+アプリケーションで使用するオープンソースのリレーショナルデータベースです。
 
-### インストール
+- 公式ページ
+    https://www.postgresql.org/
+
+- ダウンロード
     https://www.enterprisedb.com/download-postgresql-binaries
+
+## TERASOLUNA Server Framework for Java
+
+NTTデータが提供するJava向けWebアプリケーションフレームワークです。Spring Frameworkをベースとしており、企業向けシステム開発で利用されます。
+
+- 公式ページ
+    https://terasolunaorg.github.io/
+
+- ダウンロード
+    https://github.com/terasolunaorg/terasoluna-gfw-web-multi-blank/releases

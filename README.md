@@ -14,7 +14,7 @@
 
 ## 4. Webアプリケーションの基礎
 
-- [Webアプリケーションの基礎](./04_web/README.md)
+- [Webアプリケーションの基礎](./04_web-application/README.md)
 
 ## 5. データベースの基礎
 

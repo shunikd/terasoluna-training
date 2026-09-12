@@ -24,7 +24,7 @@ Javaには以下の3つの重要な要素が存在する。
 JDKはJREを含み、JREはJVMを含んでいる。
 
 ```mermaid
-flowchart TD
+graph LR
 
     JDK["JDK<br>(Java Development Kit)"]
 
@@ -58,14 +58,7 @@ flowchart LR
 
 JVMが存在することで、同じJavaプログラムを異なるOS上で実行できる。
 
-```text
-Windows
-macOS
-Linux
-```
-
-それぞれのOS向けのJVMが提供されている。
-
+Windows/macOS/Linux、それぞれのOS向けのJVMが提供されている。
 
 ## JREとは
 
@@ -196,13 +189,6 @@ flowchart LR
 - JREにはJVMが含まれる
 - Java開発では通常JDKを利用する
 
-```text
-JDK
- └─ JRE
-     └─ JVM
-```
-
-
 ## 参考資料
 
 ### Oracle Java Documentation
@@ -213,9 +199,4 @@ JDK
 
 - [Java SE Documentation](https://www.oracle.com/java/technologies/javase-documentation.html)
 
-
-⬅️ 前へ: 02-java-execution-flow.md
-
-🏠 README.md
-
-➡️ 次へ: 04-package-and-class.md
+⬅️ [前へ](./02_java-execution.md) ➡️ [次へ](./04_package-and-class.md) 🏠 [ホーム](./README.md)

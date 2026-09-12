@@ -34,8 +34,6 @@ User
 
 が型である。
 
-
-
 ## なぜ型が必要なのか
 
 型を定義することで、プログラムは格納できる値を判断できる。
@@ -59,8 +57,6 @@ age = "田中";
 ```
 
 コンパイルエラーとなる。
-
-
 
 ## Javaの型の分類
 
@@ -106,8 +102,6 @@ double price = 100.5;
 boolean active = true;
 ```
 
-
-
 ## よく利用するプリミティブ型
 
 実務で特によく利用する型は以下である。
@@ -134,8 +128,6 @@ long
 long amount = 1000000L;
 ```
 
-
-
 ```java
 boolean
 ```
@@ -145,8 +137,6 @@ boolean
 ```java
 boolean success = true;
 ```
-
-
 
 ## 参照型
 
@@ -170,8 +160,6 @@ List
 Map
 ```
 
-
-
 ### String型
 
 文字列を扱う型である。
@@ -181,8 +169,6 @@ String name = "田中";
 ```
 
 Stringは参照型である。
-
-
 
 ### クラスも型になる
 
@@ -200,8 +186,6 @@ public class User {
 ```java
 User user = new User();
 ```
-
-
 
 ## プリミティブ型と参照型
 
@@ -227,8 +211,7 @@ User user = new User();
 |String name = "田中";|参照型|
 |User user = new User();|参照型|
 
-
-## 💡 ポイント
+## ポイント
 
 - 型は変数に格納できる値を定義する
 - Javaの型は「プリミティブ型」と「参照型」に分類される
@@ -237,9 +220,7 @@ User user = new User();
 - クラスも型として利用できる
 - Collection(List、Map、Set)も参照型である
 
-
-
-## ✅ まとめ
+## まとめ
 
 ```mermaid
 flowchart TD
@@ -258,17 +239,4 @@ Javaではすべての変数に型が必要である。
 
 型を利用することで、安全にプログラムを作成することができる。
 
-
-
-## 📚 参考資料
-
-- Oracle Java Documentation
-- The Java Tutorials
-
-
-
-⬅️ 前へ: 10-inheritance-and-interface.md
-
-🏠 README.md
-
-➡️ 次へ: 12-collections-and-generics.md
+⬅️ [前へ](./05_object-oriented-programming.md) ➡️ [次へ](./07_class-and-object.md) 🏠 [ホーム](./README.md)

@@ -11,10 +11,10 @@
 
 フィールド（Field）とは、クラスが保持するデータである。
 
-例えばユーザークラスを考える。
+例えばユーザクラスを考える。
 
 ```text
-ユーザー
+ユーザ
 ├─ 名前
 ├─ 年齢
 └─ メールアドレス
@@ -50,7 +50,7 @@ public class User {
 public class User {
 
     public void printName() {
-        System.out.println("ユーザー名を表示");
+        System.out.println("ユーザ名を表示");
     }
 
 }
@@ -77,7 +77,6 @@ User
 ```
 
 フィールドはデータを保持し、メソッドはそのデータを利用して処理を実行する。
-
 
 ## クラスの基本構造
 
@@ -111,3 +110,179 @@ public class User {
     }
 
 }
+```
+
+利用側
+
+```java
+User user = new User();
+
+user.name = "田中";
+
+user.printName();
+```
+
+実行結果
+
+```text
+田中
+```
+
+## メソッドの戻り値
+
+メソッドは値を返すことができる。
+
+例)
+
+```java
+public String getName() {
+    return name;
+}
+```
+
+```java
+String userName = user.getName();
+```
+
+### returnとは
+
+returnは呼び出し元へ値を返す命令である。
+
+```java
+public String getName() {
+    return name;
+}
+```
+
+```text
+nameの値を返す
+```
+
+## メソッドの引数
+
+メソッドには値を渡すことができる。
+
+例)
+
+```java
+public void setName(String name) {
+
+}
+```
+
+呼び出し
+
+```java
+user.setName("田中");
+```
+
+### 引数とは
+
+引数（Parameter）はメソッドへ渡す値である。
+
+```java
+public void setName(String name) {
+}
+```
+
+ここでは
+
+```java
+String name
+```
+
+が引数となる。
+
+## フィールドとメソッドの例
+
+```java
+public class User {
+
+    String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+}
+```
+
+利用
+
+```java
+User user = new User();
+
+user.setName("田中");
+
+System.out.println(user.getName());
+```
+
+実行結果
+
+```text
+田中
+```
+
+## thisとは
+
+thisは現在のオブジェクト自身を表す。
+
+例)
+
+```java
+this.name = name;
+```
+
+左側
+
+```java
+this.name
+```
+
+フィールド
+
+右側
+
+```java
+name
+```
+
+引数
+
+を表している。
+
+## まとめ
+
+- フィールドはクラスが保持するデータである
+- メソッドはクラスが持つ処理である
+- メソッドは戻り値を返すことができる
+- メソッドには引数を渡すことができる
+- フィールドとメソッドを組み合わせてクラスを構成する
+
+```text
+クラス
+├─ フィールド（データ）
+└─ メソッド（処理）
+```
+
+例)
+
+```java
+public class User {
+
+    String name;
+
+    public String getName() {
+        return name;
+    }
+
+}
+```
+
+オブジェクトはデータ（フィールド）と処理（メソッド）を持つことで、現実世界のモノを表現できる。
+
+⬅️ [前へ](./07_class-and-object.md) ➡️ [次へ](./09_constructor.md) 🏠 [ホーム](./README.md)

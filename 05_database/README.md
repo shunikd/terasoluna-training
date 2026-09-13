@@ -23,5 +23,6 @@
 - Spring Frameworkの基礎
 - Spring DIを理解する
 - Spring AOPを理解する
+- Spring トランザクション管理を理解する
 - Spring Securityを理解する
 - Spring Testを理解する

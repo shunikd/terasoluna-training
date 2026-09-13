@@ -108,7 +108,7 @@ Modelは業務ロジックやデータ処理を担当する。
 - データベース操作
 
 ```mermaid
-flowchart TB
+flowchart LR
 
     Service[Service]
 

@@ -8,7 +8,7 @@
 | 2 | Javaアプリケーションとデータベースの連携方法| [📃](./02_java-database-integration.md) |
 | 3 | SQL実行の基本的な流れ| [📃](./03_dao.md) |
 | 4 | ORM（O/Rマッピング）| [📃](./04_orm.md) |
-| 5 | Spring JDBCやMyBatis| [📃]() |
+| 5 | JPAやSpring JDBC、MyBatis| [📃](./05_database-access-frameworks.md) |
 
 ## この章で学ぶこと
 
@@ -16,7 +16,7 @@
 - Javaアプリケーションとデータベースの連携方法を理解する
 - JDBCの役割を理解する
 - SQL実行の基本的な流れを理解する
-- Spring JDBCやMyBatisを学ぶための土台を身につける
+- JPAやSpring JDBCやMyBatisを学ぶための土台を身につける
 
 ## 次章
 

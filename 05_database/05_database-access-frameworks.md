@@ -1,4 +1,4 @@
-# JPA・Spring JDBC・MyBatis
+# JPAやSpring JDBC、MyBatis
 
 ## 1. 概要
 

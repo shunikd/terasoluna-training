@@ -23,4 +23,4 @@
 - Javaアプリケーションとデータベースの連携方法を理解する
 - JDBCの役割を理解する
 - SQL実行の基本的な流れを理解する
-- Spring JDBCやMyBatisを学ぶための土台を身につける
+- JPAやSpring JDBCやMyBatisを学ぶための土台を身につける

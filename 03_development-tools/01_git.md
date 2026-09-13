@@ -83,31 +83,47 @@ flowchart LR
 
 ### Push
 
-ローカルリポジトリの変更をリモートリポジトリへ送信します。
+git push は、ローカルリポジトリの変更をリモートリポジトリへ送信するコマンドです。
 
-```text
-Local Repository
-        ↓
-      Push
-        ↓
-Remote Repository
+ローカルで作業した内容は、git add → git commit を実行しただけでは自分のPC内にしか保存されていません。
+
+git pushを実行することで、コミット履歴が GitHub / GitLab などのリモートリポジトリへ反映され、他のメンバーも参照できるようになります。
+
+```mermaid
+flowchart LR
+    A["ローカルリポジトリ<br/>main"] -- git push --> B["リモートリポジトリ<br/>origin/main"]
+
+    style A fill:#dbeafe
+    style B fill:#dcfce7
 ```
+
+コマンド実行例：
+```PowerShell
+git push origin main
+```
+
+origin : リモートリポジトリ名
+
+main : 反映先ブランチ
+
 
 ### Pull
 
-リモートリポジトリの最新情報を取得します。
+git pull は、リモートリポジトリの最新状態をローカルリポジトリへ取り込むコマンドです。
 
-```text
-Remote Repository
-        ↓
-       Pull
-        ↓
-Local Repository
+複数人で開発している場合、他のメンバーがリモートリポジトリへ変更を反映していることがあります。
+
+その状態で作業を始めると、古いコードを基に開発してしまう可能性があります。
+
+そのため、作業開始前やプッシュ前には git pull を実行し、最新状態を取得することが推奨されます。
+
+```mermaid
+flowchart LR
+    A["リモートリポジトリ<br/>origin/main"] -- git pull --> B["ローカルリポジトリ<br/>main"]
+
+    style A fill:#dcfce7
+    style B fill:#dbeafe
 ```
-
-
-
-
 
 ### ブランチ（Branch）
 

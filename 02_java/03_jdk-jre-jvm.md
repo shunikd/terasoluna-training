@@ -6,8 +6,6 @@
 - Javaプログラムを開発・実行するために必要な環境を理解する
 - javacコマンドとjavaコマンドの役割を理解する
 
-
-
 ## JDK・JRE・JVMとは
 
 Javaには以下の3つの重要な要素が存在する。
@@ -17,7 +15,6 @@ Javaには以下の3つの重要な要素が存在する。
 |JDK|Javaプログラムを開発するための環境|
 |JRE|Javaプログラムを実行するための環境|
 |JVM|Javaプログラムを実行する仮想マシン|
-
 
 ## 関係図
 
@@ -35,7 +32,6 @@ graph LR
     JDK --> JRE
     JRE --> JVM
 ```
-
 
 ## JVMとは
 
@@ -78,7 +74,6 @@ flowchart TD
 
 コンパイル済みのJavaプログラムを実行するだけであればJREで実行可能である。
 
-
 ## JDKとは
 
 JDK（Java Development Kit）はJavaプログラムを開発するための環境である。
@@ -108,7 +103,6 @@ flowchart TD
 
 Java開発者は通常JDKをインストールする。
 
-
 ## javacコマンド
 
 javacはJavaソースコードをコンパイルするためのコマンドである。
@@ -127,7 +121,6 @@ HelloWorld.class
 
 が生成される。
 
-
 ## javaコマンド
 
 javaコマンドはJVMを起動し、クラスファイルを実行するためのコマンドである。
@@ -143,7 +136,6 @@ java HelloWorld
 ```text
 Hello Java
 ```
-
 
 ## 開発環境と実行環境
 
@@ -168,7 +160,6 @@ flowchart LR
 
 なお、現在では運用管理の都合から本番サーバにもJDKを配置するケースが多い。
 
-
 ## 💡 ポイント
 
 |項目|JDK|JRE|JVM|
@@ -178,7 +169,6 @@ flowchart LR
 |javac|〇|×|×|
 |javaコマンド|〇|〇|×|
 |主な利用者|開発者|利用者・サーバ|実行環境|
-
 
 ## まとめ
 

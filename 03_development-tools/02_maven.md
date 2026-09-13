@@ -14,7 +14,6 @@ MavenはJavaプロジェクトのビルド管理ツールです。
 
 Java開発では非常によく利用されるツールです。
 
----
 
 # Mavenのメリット
 
@@ -34,7 +33,6 @@ Java開発では非常によく利用されるツールです。
 
 手動でJARファイルを配置する必要がありません。
 
----
 
 ## ビルド自動化
 
@@ -44,7 +42,6 @@ Java開発では非常によく利用されるツールです。
 mvn compile
 ```
 
----
 
 ## プロジェクト構成の統一
 
@@ -52,7 +49,6 @@ Mavenでは標準ディレクトリ構成が定義されています。
 
 そのため、どのプロジェクトでも似た構成になります。
 
----
 
 # Mavenの基本概念
 
@@ -68,7 +64,6 @@ pom.xml
 
 Mavenの動作設定や依存関係を記述します。
 
----
 
 ## pom.xml
 
@@ -84,7 +79,6 @@ Mavenプロジェクトの中心となるファイルです。
 </project>
 ```
 
----
 
 ## groupId
 
@@ -98,7 +92,6 @@ Mavenプロジェクトの中心となるファイルです。
 
 通常はドメイン名を逆順にした形式を使用します。
 
----
 
 ## artifactId
 
@@ -110,7 +103,6 @@ Mavenプロジェクトの中心となるファイルです。
 <artifactId>sample-web</artifactId>
 ```
 
----
 
 ## version
 
@@ -122,7 +114,6 @@ Mavenプロジェクトの中心となるファイルです。
 <version>1.0.0</version>
 ```
 
----
 
 ## Dependency（依存関係）
 
@@ -140,7 +131,6 @@ Mavenプロジェクトの中心となるファイルです。
 
 Mavenが自動的にダウンロードします。
 
----
 
 ## Repository
 
@@ -154,7 +144,6 @@ Maven Central Repository
 
 Mavenは必要なライブラリを自動取得します。
 
----
 
 # Mavenの標準ディレクトリ構成
 
@@ -171,7 +160,6 @@ project
         └─ resources
 ```
 
----
 
 ## src/main/java
 
@@ -181,7 +169,6 @@ Javaソースコード
 src/main/java
 ```
 
----
 
 ## src/main/resources
 
@@ -192,7 +179,6 @@ application.properties
 logback.xml
 ```
 
----
 
 ## src/test/java
 
@@ -202,7 +188,6 @@ logback.xml
 JUnitテスト
 ```
 
----
 
 ## target
 
@@ -214,7 +199,6 @@ target/
 
 コンパイル後に生成されるためGit管理対象外とすることが一般的です。
 
----
 
 # Mavenのライフサイクル
 
@@ -236,7 +220,6 @@ install
 deploy
 ```
 
----
 
 # よく利用するコマンド
 
@@ -246,7 +229,6 @@ deploy
 mvn -version
 ```
 
----
 
 ## コンパイル
 
@@ -264,7 +246,6 @@ mvn compile
 target/classes
 ```
 
----
 
 ## テスト実行
 
@@ -276,7 +257,6 @@ mvn test
 
 - JUnitテスト実行
 
----
 
 ## パッケージ作成
 
@@ -302,7 +282,6 @@ target/
 sample-1.0.0.jar
 ```
 
----
 
 ## ローカルリポジトリ登録
 
@@ -318,8 +297,6 @@ mvn install
 %USERPROFILE%\.m2\repository
 ```
 
----
-
 ## クリーン
 
 ```bash
@@ -332,7 +309,6 @@ mvn clean
 targetディレクトリ削除
 ```
 
----
 
 ## クリーン＋ビルド
 
@@ -342,7 +318,6 @@ mvn clean package
 
 開発現場でよく利用されます。
 
----
 
 # Mavenリポジトリ
 
@@ -354,7 +329,6 @@ PC内に保存されるライブラリ
 C:\Users\ユーザー名\.m2\repository
 ```
 
----
 
 ## リモートリポジトリ
 
@@ -366,7 +340,6 @@ C:\Users\ユーザー名\.m2\repository
 Maven Central
 ```
 
----
 
 # 依存関係追加例
 
@@ -380,7 +353,6 @@ PostgreSQL JDBC Driver
 </dependency>
 ```
 
----
 
 # よくある開発の流れ
 
@@ -388,7 +360,6 @@ PostgreSQL JDBC Driver
 
 Javaコードを修正
 
----
 
 ## 2. コンパイル
 
@@ -396,15 +367,11 @@ Javaコードを修正
 mvn compile
 ```
 
----
-
 ## 3. テスト
 
 ```bash
 mvn test
 ```
-
----
 
 ## 4. パッケージ作成
 
@@ -412,13 +379,9 @@ mvn test
 mvn package
 ```
 
----
-
 ## 5. 実行確認
 
 生成されたJAR/WARを実行
-
----
 
 ## 6. Gitへコミット
 
@@ -426,8 +389,6 @@ mvn package
 git add .
 git commit -m "機能追加"
 ```
-
----
 
 # Gitとの関係
 
@@ -445,8 +406,6 @@ Maven
 
 役割が異なるため、通常は両方を併用します。
 
----
-
 # よく使うコマンド一覧
 
 | 操作 | コマンド |
@@ -460,8 +419,6 @@ Maven
 | クリーン＋ビルド | `mvn clean package` |
 | 依存関係取得 | `mvn dependency:resolve` |
 
----
-
 # まとめ
 
 - MavenはJavaのビルド管理ツール
@@ -470,129 +427,3 @@ Maven
 - コンパイル、テスト、パッケージ作成を自動化できる
 - Java開発ではGitとMavenを組み合わせて利用する
 - 日常業務では `clean`、`compile`、`test`、`package`、`install` をよく利用する
-
-
-
-## 5. Mavenプロジェクト作成
-
-任意の作業フォルダへ移動
-
-```powershell
-cd C:\work
-```
-
-雛形を生成
-
-```powershell
-mvn archetype:generate `
-  -DgroupId=com.example `
-  -DartifactId=test `
-  -DarchetypeArtifactId=maven-archetype-quickstart `
-  -DinteractiveMode=false
-```
-
-生成後
-
-```text
-test
-├─ pom.xml
-└─ src
-    ├─ main
-    │   └─ java
-    └─ test
-        └─ java
-```
-
----
-
-## 6. コンパイル
-
-プロジェクトへ移動
-
-```powershell
-cd test
-```
-
-コンパイル
-
-```powershell
-mvn compile
-```
-
----
-
-## 7. テスト実行
-
-```powershell
-mvn test
-```
-
----
-
-## 8. パッケージ作成
-
-```powershell
-mvn package
-```
-
-生成物
-
-```text
-target\test-1.0-SNAPSHOT.jar
-```
-
----
-
-## 9. クリーン
-
-生成物を削除
-
-```powershell
-mvn clean
-```
-
----
-
-## よく使うコマンド
-
-依存関係取得
-
-```powershell
-mvn dependency:resolve
-```
-
-コンパイル
-
-```powershell
-mvn compile
-```
-
-テスト
-
-```powershell
-mvn test
-```
-
-JAR作成
-
-```powershell
-mvn package
-```
-
-インストール
-
-```powershell
-mvn install
-```
-
-クリーン
-
-```powershell
-mvn clean
-```
-
-バージョン確認
-
-```powershell
-mvn -version
-```

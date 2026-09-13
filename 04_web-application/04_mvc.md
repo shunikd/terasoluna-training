@@ -17,36 +17,23 @@ MVC（Model-View-Controller）とは、アプリケーションの責務を3つ�
 画面表示、処理制御、業務ロジックを分離することで、保守性や拡張性の高いシステムを実現できる。
 
 ```mermaid
-flowchart LR
+flowchart TD
 
-    Controller[Controller]
+    Controller[Controller<br>（処理制御）]
 
-    Model[Model]
+    Model[Model<br>（業務ロジック）]
 
-    View[View]
+    View[View<br>（画面表示）]
 
-    Controller --> Model
+    Controller <--> View
 
-    Model --> View
+    Controller <--> Model
+
 ```
 
-## 3. MVCを構成する要素
+### MVCを構成する要素
 
 MVCは以下の3つの要素で構成される。
-
-```mermaid
-flowchart LR
-
-    Controller[Controller<br/>処理制御]
-
-    Model[Model<br/>業務処理]
-
-    View[View<br/>画面表示]
-
-    Controller --> Model
-
-    Controller --> View
-```
 
 | 要素 | 役割 |
 |--------|--------|
@@ -54,12 +41,12 @@ flowchart LR
 | View | 画面表示を担当する |
 | Controller | リクエスト受付や画面遷移制御を担当する |
 
-## 4. Java WebアプリケーションにおけるMVC
+## 3. Java WebアプリケーションにおけるMVC
 
 Java Webアプリケーションでは、ServletとJSPを利用してMVCを実現することが一般的である。
 
 ```mermaid
-flowchart LR
+flowchart TD
 
     Controller["Servlet"]
 
@@ -67,11 +54,10 @@ flowchart LR
 
     View["JSP"]
 
-    Controller --> Model
+    Controller <--> View
 
-    Model --> Controller
+    Controller <--> Model
 
-    Controller --> View
 ```
 
 | MVC | Java Webアプリケーション |
@@ -80,7 +66,36 @@ flowchart LR
 | View | JSP |
 | Controller | Servlet |
 
-## 5. Model
+
+
+## 4. MVCでの処理の流れ
+
+利用者が画面へアクセスした場合の処理の流れを示す。
+
+```mermaid
+sequenceDiagram
+
+    actor User as 利用者
+
+    participant C as Controller(Servlet)
+
+    participant M as Model(Service/DAO)
+
+    participant V as View(JSP)
+
+    User->>C: HTTP Request
+
+    C->>M: 業務処理依頼
+
+    M-->>C: 処理結果
+
+    C->>V: 画面表示依頼
+
+    V-->>User: HTML Response
+```
+
+
+## 5. Model（業務ロジック）
 
 Modelは業務ロジックやデータ処理を担当する。
 
@@ -117,7 +132,34 @@ flowchart TB
 - データベースアクセス
 - 外部システム連携
 
-## 6. View
+### Modelのコード例
+
+```java
+@RequestScoped
+public class UserService {
+
+    public User findById(Long id) {
+
+        User user = new User();
+
+        user.setName("Taro Yamada");
+
+        return user;
+    }
+}
+```
+
+#### コードポイント
+
+```
+public User findById(Long id)
+```
+
+利用者情報を取得する業務処理を実装している。
+
+実際のシステムではDAOやJPAを利用してデータベースから取得する。
+
+## 6. View（画面表示）
 
 Viewは利用者へ画面を表示する役割を担当する。
 
@@ -154,7 +196,30 @@ flowchart RL
 - SQL実行
 - データベースアクセス
 
-## 7. Controller
+### Viewのコード例
+
+```java
+<html>
+<body>
+    <h1>ユーザ情報</h1>
+
+    名前：${user.name}
+</body>
+</html>
+```
+
+#### コードポイント
+
+```
+${user.name}
+```
+
+Controllerから渡されたデータを表示している。
+
+データの表示のみを行い、業務ロジックは実装しない。
+
+
+## 7. Controller（処理制御）
 
 Controllerは利用者からのリクエストを受け取り、適切な業務処理と画面表示を制御する。
 
@@ -188,33 +253,52 @@ flowchart LR
 - 画面遷移制御
 - Viewへのデータ受け渡し
 
-## 8. MVCでの処理の流れ
+### Controllerのコード例
 
-利用者が画面へアクセスした場合の処理の流れを示す。
+```java
+@WebServlet("/user")
+public class UserServlet extends HttpServlet {
 
-```mermaid
-sequenceDiagram
+    @Inject
+    private UserService userService;
 
-    actor User as 利用者
+    @Override
+    protected void doGet(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
 
-    participant C as Controller(Servlet)
+        User user = userService.findById(1L);
 
-    participant M as Model(Service/DAO)
+        request.setAttribute("user", user);
 
-    participant V as View(JSP)
-
-    User->>C: HTTP Request
-
-    C->>M: 業務処理依頼
-
-    M-->>C: 処理結果
-
-    C->>V: 画面表示依頼
-
-    V-->>User: HTML Response
+        request.getRequestDispatcher("/user.jsp")
+               .forward(request, response);
+    }
+}
 ```
 
-## 9. MVCのメリット
+#### コードポイント
+
+```
+User user = userService.findById(1L);
+```
+業務ロジックを直接実装するのではなく、ModelであるServiceへ処理を依頼している。
+
+
+```
+request.setAttribute("user", user);
+```
+画面へ表示するためのデータをViewへ渡している。
+
+```
+forward(request, response);
+```
+表示するJSPを決定している。
+
+
+
+## 8. MVCのメリット
 
 MVCを採用することで、各コンポーネントの責務を明確に分離できる。
 
@@ -226,7 +310,7 @@ MVCを採用することで、各コンポーネントの責務を明確に分�
 - 役割分担が明確になる
 - 機能追加が容易になる
 
-## 10. MVCを採用しない場合
+## 9. MVCを採用しない場合
 
 すべての処理をJSPやServletへ記述すると、業務ロジックと画面表示が混在する。
 
@@ -261,7 +345,7 @@ flowchart LR
 >
 > フレームワークごとに名称や実装方法は異なるが、「画面」「処理制御」「業務ロジック」を分離するという考え方は共通している。
 
-## 11. まとめ
+## 10. まとめ
 
 MVCは、アプリケーションをModel、View、Controllerの3つの役割に分割する設計パターンである。
 

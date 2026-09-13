@@ -40,6 +40,38 @@ flowchart LR
 - 業務処理呼び出し
 - 画面遷移制御
 
+### Servletの実装例
+
+```java
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
+
+        request.setAttribute("name", "yamada");
+
+        request.getRequestDispatcher("/hello.jsp")
+               .forward(request, response);
+    }
+}
+```
+
+#### コードのポイント
+
+| コード                      | 説明                                   |
+| ------------------------ | ------------------------------------ |
+| `@WebServlet("/hello")`  | `/hello` へのアクセスをこのServletで処理することを示す。 |
+| `extends HttpServlet`    | Servletとして動作するための基底クラスを継承する。         |
+| `doGet()`                | HTTP GETリクエストを処理するメソッドである。           |
+| `request.getParameter()` | ブラウザから送信されたパラメータを取得する。               |
+| `request.setAttribute()` | JSPへ受け渡すデータを設定する。                    |
+| `getRequestDispatcher()` | 遷移先のJSPを取得する。                        |
+| `forward()`              | JSPへ処理を引き渡して画面表示を行う。                 |
+
 
 ## 3. JSPとは
 
@@ -71,6 +103,24 @@ flowchart RL
 - 画面表示
 - データ表示
 - レイアウト管理
+
+### JSPの実装例
+
+```java
+<html>
+<body>
+    <h1>Hello ${name}</h1>
+</body>
+</html>
+```
+
+#### コードのポイント
+
+
+| コード       | 説明                                                          |
+| --------- | ----------------------------------------------------------- |
+| `${name}` | Servletで設定された `request.setAttribute("name", name)` の値を取得する。 |
+
 
 ## 4. ServletとJSPの関係
 

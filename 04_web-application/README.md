@@ -5,7 +5,7 @@
 | No | 内容 | リンク |
 | --- | --- | --- |
 | 1 | Webアプリケーションの全体像 | [📃](./01_web-application-overview.md) |
-| 2 | Java Webアプリケーション | [📃]() |
+| 2 | Java Webアプリケーション | [📃](./02_java-web-application.md) |
 | 3 | ServletとJSP | [📃]() |
 | 4 | MVC | [📃]() |
 
